@@ -1,0 +1,39 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{title}}</div>
+  <div class="card-body">
+
+    <form (ngSubmit) = "registrar()">
+      <div class="form-group row">
+        <label for="placa" class="col-for-label col-sm-2">Placa</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="tiquete.placa" name="placa">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="cilindraje" class="col-for-label col-sm-2">Cilindraje</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="tiquete.cilindraje" name="cilindraje">
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <label class="col-sm-2" for="tipoVehiculo">Tipo Vehiculo</label>
+          <div class="col-sm-6">
+              <select class="custom-select" name="tipoVehiculo" [(ngModel)]="tiquete.tipoVehiculo">
+                <option selected>Seleccione uno...</option>
+                <option value="1">MOTO</option>
+                <option value="2">CARRO</option>
+              </select>
+          </div>
+        </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6"> 
+          <button class="btn btn-primary" role="button">Registrar</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

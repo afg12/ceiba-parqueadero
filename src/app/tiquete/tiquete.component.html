@@ -1,0 +1,26 @@
+
+<h5>Listado de Tiquetes</h5>
+<div class="my-2 text-left">
+  <button class="btn btn-rounded btn-primary" [routerLink] = "['/tiquetes/form']">Registrar</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Fecha Entrada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tiquete of tiquetes">
+      <th scope="row">{{ tiquete.id }}</th>
+      <td>{{ tiquete.placa }}</td>
+      <td>{{ tiquete.tipoVehiculo }}</td>
+      <td>{{ tiquete.fechaIngreso }}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink] = "['/tiquetes/form', tiquete.id]">Salida</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
