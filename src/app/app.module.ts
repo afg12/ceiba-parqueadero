@@ -9,12 +9,14 @@ import { TiqueteService } from './tiquete/tiquete.service';
 import { RouterModule, Routes } from '@angular/router';
 import { FormComponent } from './tiquete/form.component';
 import { FormsModule } from '@angular/forms';
+import { FacturarComponent } from './tiquete/facturar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {path: '', redirectTo: '/tiquetes', pathMatch: 'full'},
   {path: 'tiquetes', component: TiqueteComponent},
   {path: 'tiquetes/form', component: FormComponent},
-  {path: 'tiquetes/:id', component: FormComponent}
+  {path: 'tiquetes/facturar/:id', component: FacturarComponent}
 ];
 
 @NgModule({
@@ -22,13 +24,15 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     TiqueteComponent,
-    FormComponent
+    FormComponent,
+    FacturarComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [TiqueteService],
   bootstrap: [AppComponent]

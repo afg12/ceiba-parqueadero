@@ -1,8 +1,10 @@
 
-<h5>Listado de Tiquetes</h5>
+<h5>Listado de Cobros</h5>
 <div class="my-2 text-left">
   <button class="btn btn-rounded btn-primary" [routerLink] = "['/tiquetes/form']">Registrar</button>
 </div>
+
+
 <table class="table">
   <thead>
     <tr>
@@ -10,6 +12,9 @@
       <th scope="col">Placa</th>
       <th scope="col">Tipo</th>
       <th scope="col">Fecha Entrada</th>
+      <th scope="col">Fecha Salida</th>
+      <th scope="col">Total</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +22,11 @@
       <th scope="row">{{ tiquete.id }}</th>
       <td>{{ tiquete.placa }}</td>
       <td>{{ tiquete.tipoVehiculo }}</td>
-      <td>{{ tiquete.fechaIngreso }}</td>
+      <td>{{ tiquete.fechaIngreso | date:'medium'}}</td>
+      <td>{{ tiquete.fechaSalida | date:'medium'}}</td>
+      <td>{{ tiquete.total | currency}}</td>
       <td>
-        <button class="btn btn-primary" [routerLink] = "['/tiquetes/form', tiquete.id]">Salida</button>
+        <button class="btn btn-primary" [routerLink] = "['/tiquetes/facturar', tiquete.id]" [hidden]="tiquete.total">Salida</button>
       </td>
     </tr>
   </tbody>

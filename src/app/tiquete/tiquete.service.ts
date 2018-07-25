@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tiquete } from './tiquete';
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { map } from 'rxjs/operators';
 
@@ -23,6 +22,10 @@ export class TiqueteService {
 
   registrar(tiquete: Tiquete) :  Observable<Tiquete> {
     return this.http.post<Tiquete>(`${this.urlEndPoint}/registrar`, tiquete, {headers: this.httpHeaders})
+  }
+
+  getTiquete(id): Observable<Tiquete> {
+    return this.http.get<Tiquete>(`${this.urlEndPoint}/tiquete/${id}`)
   }
 
   facturar(tiquete: Tiquete): Observable<Tiquete>{

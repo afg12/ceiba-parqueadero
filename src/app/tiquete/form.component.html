@@ -4,7 +4,7 @@
 
     <form (ngSubmit) = "registrar()">
       <div class="form-group row">
-        <label for="placa" class="col-for-label col-sm-2">Placa</label>
+        <label for="placa" class="col-for-label col-sm-2">Placa *</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" [(ngModel)]="tiquete.placa" name="placa">
         </div>
@@ -18,14 +18,13 @@
       </div>
 
       <div class="form-group row">
-          <label class="col-sm-2" for="tipoVehiculo">Tipo Vehiculo</label>
+          <label class="col-sm-2" for="tipoVehiculo">Tipo Vehiculo *</label>
           <div class="col-sm-6">
-              <select class="custom-select" name="tipoVehiculo" [(ngModel)]="tiquete.tipoVehiculo">
-                <option selected>Seleccione uno...</option>
-                <option value="1">MOTO</option>
-                <option value="2">CARRO</option>
-              </select>
-          </div>
+            <select class="custom-select" name="tipoVehiculo" (change)="onChange($event)">
+              <option selected>Seleccione uno...</option>
+              <option *ngFor="let tipo of tiposVehiculo" [ngValue]="tipo.name">{{ tipo.name }}</option>
+            </select>
+        </div>
         </div>
 
       <div class="form-group row">
@@ -34,6 +33,8 @@
         </div>
       </div>
     </form>
-
+    <ngb-alert [dismissible]="alert.dismissible" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true" [type]="alert.type" [hidden]="!messageAlert"> 
+      {{ messageAlert }}
+    </ngb-alert>
   </div>
 </div>
