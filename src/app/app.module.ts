@@ -11,6 +11,7 @@ import { FormComponent } from './tiquete/form.component';
 import { FormsModule } from '@angular/forms';
 import { FacturarComponent } from './tiquete/facturar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TrmComponent } from './trm/trm.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/tiquetes', pathMatch: 'full'},
@@ -25,7 +26,8 @@ const routes: Routes = [
     HeaderComponent,
     TiqueteComponent,
     FormComponent,
-    FacturarComponent
+    FacturarComponent,
+    TrmComponent
   ],
   imports: [
     BrowserModule,

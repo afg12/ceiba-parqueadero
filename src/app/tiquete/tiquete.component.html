@@ -4,30 +4,31 @@
   <button class="btn btn-rounded btn-primary" [routerLink] = "['/tiquetes/form']">Registrar</button>
 </div>
 
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Placa</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Fecha Entrada</th>
-      <th scope="col">Fecha Salida</th>
-      <th scope="col">Total</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let tiquete of tiquetes">
-      <th scope="row">{{ tiquete.id }}</th>
-      <td>{{ tiquete.placa }}</td>
-      <td>{{ tiquete.tipoVehiculo }}</td>
-      <td>{{ tiquete.fechaIngreso | date:'medium'}}</td>
-      <td>{{ tiquete.fechaSalida | date:'medium'}}</td>
-      <td>{{ tiquete.total | currency}}</td>
-      <td>
-        <button class="btn btn-primary" [routerLink] = "['/tiquetes/facturar', tiquete.id]" [hidden]="tiquete.total">Salida</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Placa</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Fecha Entrada</th>
+        <th scope="col">Fecha Salida</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tiquete of tiquetes">
+        <th scope="row">{{ tiquete.id }}</th>
+        <td>{{ tiquete.placa }}</td>
+        <td>{{ tiquete.tipoVehiculo }}</td>
+        <td>{{ tiquete.fechaIngreso | date:'medium'}}</td>
+        <td>{{ tiquete.fechaSalida | date:'medium'}}</td>
+        <td>{{ tiquete.total | currency}}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink] = "['/tiquetes/facturar', tiquete.id]" [hidden]="tiquete.total">Salida</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
