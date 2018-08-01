@@ -3,7 +3,6 @@ import { Tiquete } from './tiquete';
 import { TiqueteService } from './tiquete.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-facturar',

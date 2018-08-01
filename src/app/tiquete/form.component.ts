@@ -11,9 +11,9 @@ import swal from 'sweetalert2';
 })
 export class FormComponent implements OnInit {
 
-  private tiquete: Tiquete = new Tiquete();
-  public title: String = 'Crear registro';
-  public messageAlert: String;
+  tiquete: Tiquete = new Tiquete();
+  title: String = 'Crear registro';
+  messageAlert: String;
 
   staticAlertClosed = false;
 
@@ -23,7 +23,7 @@ export class FormComponent implements OnInit {
   private router: Router,
   private alert: NgbAlertConfig) { }
 
-  public tiposVehiculo = [
+  tiposVehiculo = [
     {name: 'MOTO'},
     {name: 'CARRO'}
   ];
