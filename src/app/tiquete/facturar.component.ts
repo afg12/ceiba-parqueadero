@@ -3,6 +3,7 @@ import { Tiquete } from './tiquete';
 import { TiqueteService } from './tiquete.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-facturar',
@@ -33,7 +34,7 @@ export class FacturarComponent implements OnInit {
   public facturar(): void{
     this.tiqueteService.facturar(this.tiquete).subscribe(
       response => {
-        this.router.navigate(['/tiquetes'])
+        this.router.navigate(['/tiquetes'], { queryParams: { salida: true }})
         swal('Registro actualizado', `Vehiculo con placa: ${this.tiquete.placa} actualizado con éxito!`, 'success')
       }
     )

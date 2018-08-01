@@ -14,8 +14,8 @@ export class TiqueteService {
   
   constructor(private http: HttpClient) { }
 
-  getTiquetes(): Observable<Tiquete[]>{
-    return this.http.get(`${this.urlEndPoint}/listar`).pipe(
+  getRegistros(): Observable<Tiquete[]>{
+    return this.http.get(`${this.urlEndPoint}/listarRegistros`).pipe(
       map(response => response as Tiquete[])
     );
   }
@@ -25,10 +25,16 @@ export class TiqueteService {
   }
 
   getTiquete(id): Observable<Tiquete> {
-    return this.http.get<Tiquete>(`${this.urlEndPoint}/tiquete/${id}`)
+    return this.http.get<Tiquete>(`${this.urlEndPoint}/registro/${id}`)
   }
 
   facturar(tiquete: Tiquete): Observable<Tiquete>{
     return this.http.put<Tiquete>(`${this.urlEndPoint}/facturar/${tiquete.id}`, tiquete, {headers: this.httpHeaders})
+  }
+
+  getFacturas(): Observable<Tiquete[]>{
+    return this.http.get(`${this.urlEndPoint}/listarFacturas`).pipe(
+      map(response => response as Tiquete[])
+    );
   }
 }
