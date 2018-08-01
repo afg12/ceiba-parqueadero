@@ -16,13 +16,12 @@ export class TiqueteComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      if(params['salida']==undefined || params['salida'] == "false"){
-        this.listarRegistros()
+      if (params['salida'] === undefined || params['salida'] === 'false') {
+        this.listarRegistros();
       } else {
         this.listarFacturas();
       }
-  });
-    
+    });
   }
 
   listarRegistros() {

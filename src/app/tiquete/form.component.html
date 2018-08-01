@@ -1,5 +1,5 @@
 <div class="card bg-dark text-white">
-  <div class="card-header">{{title}}</div>
+  <div class="card-header">{{ title }}</div>
   <div class="card-body">
 
     <form (ngSubmit) = "registrar()">
@@ -28,12 +28,12 @@
         </div>
 
       <div class="form-group row">
-        <div class="col-sm-6"> 
+        <div class="col-sm-6">
           <button class="btn btn-primary" role="button">Registrar</button>
         </div>
       </div>
     </form>
-    <ngb-alert [dismissible]="alert.dismissible" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true" [type]="alert.type" [hidden]="!messageAlert"> 
+    <ngb-alert [dismissible]="alert.dismissible" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true" [type]="alert.type" [hidden]="!messageAlert">
       {{ messageAlert }}
     </ngb-alert>
   </div>

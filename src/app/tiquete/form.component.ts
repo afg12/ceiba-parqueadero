@@ -11,22 +11,22 @@ import swal from 'sweetalert2';
 })
 export class FormComponent implements OnInit {
 
-  private tiquete: Tiquete = new Tiquete()
-  private title:string = "Crear registro"
-  private messageAlert:string = ""
+  private tiquete: Tiquete = new Tiquete();
+  public title: String = 'Crear registro';
+  public messageAlert: String;
 
   staticAlertClosed = false;
-  
+
   @Input() public alerts: Array<string> = [];
 
   constructor(private tiqueteService: TiqueteService,
   private router: Router,
   private alert: NgbAlertConfig) { }
 
-  private tiposVehiculo = [
-    {name: "MOTO"},
-    {name: "CARRO"}
-  ]
+  public tiposVehiculo = [
+    {name: 'MOTO'},
+    {name: 'CARRO'}
+  ];
 
   ngOnInit() {
   }
@@ -35,17 +35,17 @@ export class FormComponent implements OnInit {
     this.tiquete.tipoVehiculo = $event.target.value;
   }
 
-  public registrar(): void{
+  public registrar(): void {
     this.tiqueteService.registrar(this.tiquete).subscribe(
         response => {
-          this.router.navigate(['/tiquetes'])
-          swal('Registro guardado', `Vehiculo con placa: ${this.tiquete.placa} creado con éxito!`, 'success')
+          this.router.navigate(['/tiquetes']);
+          swal('Registro guardado', `Vehiculo con placa: ${this.tiquete.placa} creado con éxito!`, 'success');
         }, error => {
-            this.alert.type = 'danger'
-            this.alert.dismissible = true
-            this.staticAlertClosed = false
-            this.messageAlert = error.error.message
+            this.alert.type = 'danger';
+            this.alert.dismissible = true;
+            this.staticAlertClosed = false;
+            this.messageAlert = error.error.message;
         }
-    )
+    );
   }
 }
