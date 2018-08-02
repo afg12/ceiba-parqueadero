@@ -1,7 +1,7 @@
 export class Tiquete {
     id: number;
     placa: string;
-    cilindraje:string;
+    cilindraje: string;
     tipoVehiculo: string;
     fechaIngreso: Date;
     fechaSalida: Date;
